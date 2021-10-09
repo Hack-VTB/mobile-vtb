@@ -28,56 +28,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             MobileVTBTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    beginScreen()
+                    Navigation()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun beginScreen() {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.payment_solid),
-            contentDescription = "Payment solid",
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .weight(6f)
-                .fillMaxWidth()
-        )
-        Text(
-            text = "Повышение финансовой грамотности - в наше время важная хуйня",
-            textAlign = TextAlign.Center,
-            fontSize = 26.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .weight(3f)
-                .padding(10.dp)
-        )
-
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .weight(1f)
-                .padding(20.dp)
-                .fillMaxWidth()
-        ) {
-            Text("Skip")
-            Text("Next")
-        }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MobileVTBTheme {
-        beginScreen()
     }
 }
