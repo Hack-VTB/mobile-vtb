@@ -1,5 +1,6 @@
 package ui
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -9,10 +10,12 @@ import ui.beginScreens.BeginScreen1
 import ui.beginScreens.BeginScreen2
 import ui.beginScreens.BeginScreen3
 import ui.beginScreens.StartScreen
+import ui.lessons.Lesson1Screen1
 import ui.routes.RoutesScreen
 import ui.routes.listRoutes
 import utils.Screen
 
+@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Composable
 fun Navigation() {
@@ -31,7 +34,11 @@ fun Navigation() {
             StartScreen(navController = navController)
         }
         composable(route = Screen.RoutesScreen.route) {
-            RoutesScreen(listRoutes)
+            RoutesScreen(listRoutes, navController)
+        }
+
+        composable(route = Screen.Lesson1Screen1.route) {
+            Lesson1Screen1(navController = navController)
         }
     }
 }
