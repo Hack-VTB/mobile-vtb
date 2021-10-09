@@ -7,10 +7,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,10 +18,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.mobilevtb.ui.theme.MobileVTBTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.example.mobilevtb.R
 import com.google.accompanist.pager.HorizontalPager
+import utils.Screen
 
 
 data class RoutesData(
@@ -57,9 +56,10 @@ var listRoutes: List<RoutesData> = listOf<RoutesData>(
 )
 
 
+@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Composable
-fun RoutesScreen(data: List<RoutesData>) {
+fun RoutesScreen(data: List<RoutesData>, navController: NavController) {
     Column {
         Text(
             text = "Выбери историю",
@@ -72,20 +72,22 @@ fun RoutesScreen(data: List<RoutesData>) {
             count = data.size,
             modifier = Modifier.fillMaxSize()
         ) { page ->
-                RoutesCard(page, data[page])
+                RoutesCard(page, data[page], navController)
         }
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
-fun RoutesCard(index: Int, route: RoutesData) {
+fun RoutesCard(index: Int, route: RoutesData, navController: NavController) {
     Card(
         shape = RoundedCornerShape(10.dp),
         elevation = 20.dp,
         modifier = Modifier
             .padding(15.dp)
             .fillMaxSize(),
-        backgroundColor = colorResource(R.color.blueCard)
+        backgroundColor = colorResource(R.color.blueCard),
+        onClick = {navController.navigate(Screen.Lesson1Screen1.route)}
     ) {
         Column(
             modifier = Modifier
@@ -135,13 +137,14 @@ fun RoutesCard(index: Int, route: RoutesData) {
 }
 
 
+@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Preview
 @Composable
 fun routesScreenPrev() {
     MobileVTBTheme {
         Surface(color = MaterialTheme.colors.background) {
-            RoutesScreen(listRoutes)
+//            RoutesScreen(listRoutes, na)
         }
     }
 }
