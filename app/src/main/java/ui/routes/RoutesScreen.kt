@@ -56,7 +56,7 @@ var listRoutes: List<RoutesData> = listOf<RoutesData>(
 
 @ExperimentalPagerApi
 @Composable
-fun routesScreen(data: List<RoutesData>) {
+fun RoutesScreen(data: List<RoutesData>) {
     Column {
         Text(
             text = "Выбери историю",
@@ -69,13 +69,13 @@ fun routesScreen(data: List<RoutesData>) {
             count = data.size,
             modifier = Modifier.fillMaxSize()
         ) { page ->
-                routesCard(page, data[page])
+                RoutesCard(page, data[page])
         }
     }
 }
 
 @Composable
-fun routesCard(index: Int, route: RoutesData) {
+fun RoutesCard(index: Int, route: RoutesData) {
     Card(
         shape = RoundedCornerShape(10.dp),
         elevation = 20.dp,
@@ -85,7 +85,10 @@ fun routesCard(index: Int, route: RoutesData) {
         backgroundColor = colorResource(R.color.blueCard)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
                 "Урок №${index + 1}",
@@ -96,37 +99,37 @@ fun routesCard(index: Int, route: RoutesData) {
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Bold
             )
-            Text(
-                route.description,
+            Card(
+                shape = RoundedCornerShape(10.dp),
+                elevation = 20.dp,
                 modifier = Modifier
+                    .padding(15.dp)
                     .weight(1f)
-                    .padding(start = 16.dp),
-                textAlign = TextAlign.Start,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal
-            )
+                    .align(Alignment.CenterHorizontally)
+                    .fillMaxWidth(),
+                backgroundColor = colorResource(R.color.white)
+            ) {
+                Text(
+                    route.description,
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(start = 16.dp),
+                    textAlign = TextAlign.Center,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal
+                )
+            }
             Image(
                 painter = painterResource(route.avatar),
                 "${route.name}",
                 modifier = Modifier
-                    .weight(3f)
+                    .weight(4f)
                     .fillMaxSize()
                     .align(Alignment.Start)
             )
         }
     }
 }
-
-//@Composable
-//fun chatCloudCard(size: Float) {
-//    Canvas(modifier = Modifier.fillMaxWidth()) {
-//
-//        drawRect(
-//            color = Red,
-//            size = Size(20f,30f)
-//        )
-//    }
-//}
 
 
 @ExperimentalPagerApi
@@ -135,7 +138,7 @@ fun routesCard(index: Int, route: RoutesData) {
 fun routesScreenPrev() {
     MobileVTBTheme {
         Surface(color = MaterialTheme.colors.background) {
-            routesScreen(listRoutes)
+            RoutesScreen(listRoutes)
         }
     }
 }

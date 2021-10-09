@@ -225,7 +225,7 @@ fun StartScreen(navController: NavController) {
         ) {
             Button(
                 onClick = {
-
+                          navController.navigate(Screen.RoutesScreen.route)
                 },
                 modifier = Modifier
                     .width(200.dp),

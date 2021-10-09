@@ -4,12 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 import ui.beginScreens.BeginScreen1
 import ui.beginScreens.BeginScreen2
 import ui.beginScreens.BeginScreen3
 import ui.beginScreens.StartScreen
+import ui.routes.RoutesScreen
+import ui.routes.listRoutes
 import utils.Screen
 
+@ExperimentalPagerApi
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
@@ -25,6 +29,9 @@ fun Navigation() {
         }
         composable(route = Screen.StartScreen.route) {
             StartScreen(navController = navController)
+        }
+        composable(route = Screen.RoutesScreen.route) {
+            RoutesScreen(listRoutes)
         }
     }
 }
