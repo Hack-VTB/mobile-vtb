@@ -14,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -27,26 +28,28 @@ import com.google.accompanist.pager.HorizontalPager
 
 
 data class RoutesData(
-    val name: String,
+    val name: String = "",
+    val description: String = "",
     val avatar: Int
 )
 
 var listRoutes: List<RoutesData> = listOf<RoutesData>(
     RoutesData(
-        "Джек",
-        R.drawable.jack
+        name = "Джек",
+        avatar = R.drawable.jack,
+        description = "Тебе предстоит занкомство с миром инвестиций и персонажами. у каждого персонажа своя "
     ),
     RoutesData(
-        "Хью",
-        R.drawable.hugh
+        name = "Хью",
+        avatar = R.drawable.hugh
     ),
     RoutesData(
-        "Джулия",
-        R.drawable.julia
+        name = "Джулия",
+        avatar = R.drawable.julia
     ),
     RoutesData(
         "Вика",
-        R.drawable.vika
+        avatar = R.drawable.vika
     )
 )
 
@@ -65,10 +68,8 @@ fun routesScreen(data: List<RoutesData>) {
         HorizontalPager(
             count = data.size,
             modifier = Modifier.fillMaxSize()
-        ) {
-            for (i in data.indices) {
-                routesCard(i, data[i])
-            }
+        ) { page ->
+                routesCard(page, data[page])
         }
     }
 }
@@ -80,27 +81,37 @@ fun routesCard(index: Int, route: RoutesData) {
         elevation = 20.dp,
         modifier = Modifier
             .padding(15.dp)
-            .fillMaxSize()
+            .fillMaxSize(),
+        backgroundColor = colorResource(R.color.blueCard)
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                "Урок №$index",
+                "Урок №${index + 1}",
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp, top = 8.dp),
                 textAlign = TextAlign.Start,
                 fontSize = 26.sp,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Bold
             )
-//            Text()
+            Text(
+                route.description,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 16.dp),
+                textAlign = TextAlign.Start,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal
+            )
             Image(
                 painter = painterResource(route.avatar),
                 "${route.name}",
                 modifier = Modifier
                     .weight(3f)
                     .fillMaxSize()
+                    .align(Alignment.Start)
             )
         }
     }
