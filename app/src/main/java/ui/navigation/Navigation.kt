@@ -11,6 +11,7 @@ import ui.beginScreens.BeginScreen2
 import ui.beginScreens.BeginScreen3
 import ui.beginScreens.StartScreen
 import ui.lessons.Lesson1Screen1
+import ui.lessons.Lesson1Screen2
 import ui.routes.RoutesScreen
 import ui.routes.listRoutes
 import utils.Screen
@@ -39,6 +40,9 @@ fun Navigation() {
 
         composable(route = Screen.Lesson1Screen1.route) {
             Lesson1Screen1(navController = navController)
+        }
+        composable(route = Screen.Lesson1Screen2.route) {
+            Lesson1Screen2(navController = navController)
         }
     }
 }

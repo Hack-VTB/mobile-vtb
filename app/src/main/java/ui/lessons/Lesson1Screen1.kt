@@ -117,7 +117,7 @@ fun lesson1Screen1Main(navController: NavController) {
             )
             Button(
                 onClick = {
-                    navController.navigate(Screen.Lesson1Screen1.route)
+                    navController.navigate(Screen.Lesson1Screen2.route)
                 },
                 modifier = Modifier
                     .weight(1f)

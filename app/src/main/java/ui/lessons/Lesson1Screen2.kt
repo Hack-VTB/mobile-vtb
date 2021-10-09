@@ -23,8 +23,9 @@ import com.example.mobilevtb.ui.theme.MobileVTBTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 
+@ExperimentalMaterialApi
 @Composable
-fun lesson1Screen2() {
+fun Lesson1Screen2(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -36,7 +37,7 @@ fun lesson1Screen2() {
             modifier = Modifier
                 .padding(10.dp)
         )
-        lesson1Screen2Head()
+        lesson1Screen1Head(navController)
         lesson1Screen2Body()
     }
 }
@@ -153,7 +154,7 @@ fun lesson1Screen2Body()
 fun lesson1Screen2Prev() {
     MobileVTBTheme {
         Surface(color = MaterialTheme.colors.background) {
-            lesson1Screen2()
+//            Lesson1Screen2()
         }
     }
 }
