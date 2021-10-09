@@ -94,7 +94,7 @@ fun RoutesCard(index: Int, route: RoutesData) {
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                "История №${index + 1}",
+                "Эпизод №${index + 1}",
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp, top = 8.dp),
