@@ -38,7 +38,7 @@ fun BeginScreen1(navController: NavController) {
                 .fillMaxWidth()
         )
         Text(
-            text = "Финансовое приложение",
+            text = "Добро пожаловать в финансовое приложение!",
             textAlign = TextAlign.Center,
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
@@ -88,7 +88,7 @@ fun BeginScreen2(navController: NavController) {
                 .fillMaxWidth()
         )
         Text(
-            text = "С помощью игры увеличь свои знания о",
+            text = "Как легко и непринужденно узнать больше о экономике?",
             textAlign = TextAlign.Center,
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
@@ -139,7 +139,7 @@ fun BeginScreen3(navController: NavController) {
                 .fillMaxWidth()
         )
         Text(
-            text = "Ну или нет, хуй знает",
+            text = "Узнай всё, пройдя несколько историй!",
             textAlign = TextAlign.Center,
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,

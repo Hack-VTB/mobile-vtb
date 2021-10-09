@@ -41,15 +41,18 @@ var listRoutes: List<RoutesData> = listOf<RoutesData>(
     ),
     RoutesData(
         name = "Хью",
-        avatar = R.drawable.hugh
+        avatar = R.drawable.hugh,
+        description = "Привет, я Хью! Узнаем что тамое акции?"
     ),
     RoutesData(
         name = "Джулия",
-        avatar = R.drawable.julia
+        avatar = R.drawable.julia,
+        description = "Привет, я Джулия! Налоги - это просто, давай выяним это"
     ),
     RoutesData(
         "Вика",
-        avatar = R.drawable.vika
+        avatar = R.drawable.vika,
+        description = "Привет, я Вика! Узнаем об облигациях?"
     )
 )
 
@@ -91,7 +94,7 @@ fun RoutesCard(index: Int, route: RoutesData) {
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                "Урок №${index + 1}",
+                "История №${index + 1}",
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp, top = 8.dp),
