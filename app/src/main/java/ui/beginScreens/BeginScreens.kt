@@ -1,4 +1,4 @@
-package ui
+package ui.beginScreens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,29 +18,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.example.mobilevtb.R
+import utils.Screen
 
-@Composable
-fun Navigation() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.BeginScreen1.route) {
-        composable(route = Screen.BeginScreen1.route) {
-            BeginScreen1(navController = navController)
-        }
-        composable(route = Screen.BeginScreen2.route) {
-            BeginScreen2(navController = navController)
-        }
-        composable(route = Screen.BeginScreen3.route) {
-            BeginScreen3(navController = navController)
-        }
-        composable(route = Screen.StartScreen.route) {
-            StartScreen(navController = navController)
-        }
-    }
-}
 
 @Composable
 fun BeginScreen1(navController: NavController) {

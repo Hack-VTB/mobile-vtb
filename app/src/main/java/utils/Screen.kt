@@ -1,4 +1,4 @@
-package ui
+package utils
 
 sealed class Screen(val route: String) {
     object BeginScreen1: Screen("begin_screen_1")
